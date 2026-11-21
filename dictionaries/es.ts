@@ -13,6 +13,7 @@ const es = {
     sections: "Secciones",
     language: "Idioma",
     home: "Inicio",
+    blog: "Blog",
   },
   hero: {
     eyebrow: "Software Solutions · Integraciones",
@@ -124,6 +125,15 @@ const es = {
     email: "Email",
     copy: "Copiar",
     copied: "Copiado",
+  },
+  blog: {
+    eyebrow: "Blog",
+    series: "Integraciones sin drama",
+    lede: "Cada semana, un patrón de integración o rendimiento que ahorra problemas.",
+    minutes: "min de lectura",
+    read: "Leer",
+    all: "Ver todos los artículos",
+    endNote: "Este artículo es parte de Integraciones sin drama: cada semana, un patrón nuevo.",
   },
   footer: { rights: "Todos los derechos reservados." },
   notFound: { title: "Esta ruta no está conectada", back: "Volver al inicio" },

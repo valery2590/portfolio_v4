@@ -2,24 +2,26 @@ import Link from "next/link";
 import { locales, type Dict, type Locale } from "@/lib/i18n";
 import Logo from "./Logo";
 
-export default function Header({ t, lang }: { t: Dict; lang: Locale }) {
+/** `subpath` keeps the visitor on the same page when switching language (e.g. "/blog/cache-cdn"). */
+export default function Header({ t, lang, subpath = "" }: { t: Dict; lang: Locale; subpath?: string }) {
+  const home = `/${lang}`;
   return (
     <header className="top">
       <div className="wrap">
-        <a className="logo" href="#inicio" aria-label={t.nav.home}>
+        <Link className="logo" href={home} aria-label={t.nav.home}>
           <Logo />
           VFH
-        </a>
+        </Link>
         <nav className="links" aria-label={t.nav.sections}>
-          <a href="#caso">{t.nav.case}</a>
-          <a href="#integraciones">{t.nav.integrations}</a>
-          <a href="#stack">{t.nav.stack}</a>
-          <a href="#proceso">{t.nav.process}</a>
-          <a href="#contacto">{t.nav.contact}</a>
+          <a href={`${home}#caso`}>{t.nav.case}</a>
+          <a href={`${home}#integraciones`}>{t.nav.integrations}</a>
+          <a href={`${home}#stack`}>{t.nav.stack}</a>
+          <Link href={`${home}/blog`}>{t.nav.blog}</Link>
+          <a href={`${home}#contacto`}>{t.nav.contact}</a>
         </nav>
         <div className="lang" role="group" aria-label={t.nav.language}>
           {locales.map((l) => (
-            <Link key={l} href={`/${l}`} hrefLang={l} aria-current={l === lang ? "true" : undefined}>
+            <Link key={l} href={`/${l}${subpath}`} hrefLang={l} aria-current={l === lang ? "true" : undefined}>
               {l.toUpperCase()}
             </Link>
           ))}

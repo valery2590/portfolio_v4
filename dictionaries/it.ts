@@ -15,6 +15,7 @@ const it: Dict = {
     sections: "Sezioni",
     language: "Lingua",
     home: "Home",
+    blog: "Blog",
   },
   hero: {
     eyebrow: "Software Solutions · Integrazioni",
@@ -126,6 +127,15 @@ const it: Dict = {
     email: "Email",
     copy: "Copia",
     copied: "Copiato",
+  },
+  blog: {
+    eyebrow: "Blog",
+    series: "Integrazioni senza drammi",
+    lede: "Ogni settimana, un pattern di integrazione o performance che evita problemi.",
+    minutes: "min di lettura",
+    read: "Leggi",
+    all: "Vedi tutti gli articoli",
+    endNote: "Questo articolo fa parte di Integrazioni senza drammi: un nuovo pattern ogni settimana.",
   },
   footer: { rights: "Tutti i diritti riservati." },
   notFound: { title: "Questa rotta non è collegata", back: "Torna alla home" },

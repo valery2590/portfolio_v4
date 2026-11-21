@@ -281,3 +281,37 @@ a.channel:hover { background: color-mix(in srgb, var(--bg) 8%, var(--ink)); }
   .mq-set { flex-wrap: wrap; }
   .mq-set[aria-hidden] { display: none; }
 }
+
+/* Blog */
+.post-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+.post-card {
+  display: flex; flex-direction: column; gap: 12px; padding: 26px; border-radius: 14px;
+  background: var(--surface); border: 1px solid var(--line); transition: transform .18s ease, border-color .18s;
+}
+.post-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+.post-card h3 { font-size: 22px; }
+.post-card p { color: var(--muted); font-size: 15px; }
+.post-meta { font: 400 12.5px var(--f-mono); color: var(--muted); display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.post-num { color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent); padding: 2px 8px; border-radius: 999px; font-weight: 500; }
+.post-more { font-weight: 600; font-size: 14px; color: var(--accent); margin-top: auto; }
+.blog-all { margin-top: 24px; }
+.blog-index { min-height: 60vh; }
+
+.article { padding-block: 64px 88px; background-image: radial-gradient(var(--dot) 1.2px, transparent 1.2px); background-size: 22px 22px; background-repeat: repeat-x; background-size: 22px 22px; }
+.article-wrap { max-width: 760px; display: flex; flex-direction: column; gap: 18px; }
+.article h1 { font-size: clamp(34px, 5vw, 52px); font-weight: 800; }
+.article-lede { font-size: 19px; color: var(--muted); }
+.back { font: 500 13px var(--f-mono); color: var(--muted); }
+.back:hover { color: var(--ink); }
+.prose { display: flex; flex-direction: column; gap: 18px; margin-top: 18px; padding-top: 28px; border-top: 1px solid var(--line); font-size: 17.5px; line-height: 1.75; }
+.prose h2 { font-size: 27px; font-weight: 700; margin-top: 18px; }
+.prose ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.prose li { position: relative; padding-left: 30px; }
+.prose li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-family: var(--f-mono); }
+.prose strong { font-weight: 600; color: var(--ink); }
+.prose code { font: 0.86em var(--f-mono); background: color-mix(in srgb, var(--accent) 12%, transparent); padding: 2px 6px; border-radius: 5px; }
+.prose pre { background: var(--code-bg); color: var(--code-fg); border-radius: 12px; padding: 18px 20px; overflow-x: auto; }
+.prose pre code { background: none; padding: 0; font-size: 13.5px; color: inherit; }
+.prose blockquote { border-left: 3px solid var(--signal); background: color-mix(in srgb, var(--signal) 8%, var(--surface)); padding: 16px 20px; border-radius: 0 10px 10px 0; font-size: 16px; }
+.article-end { margin-top: 36px; padding: 26px; border-radius: 14px; background: var(--surface); border: 1px solid var(--line); display: flex; flex-direction: column; gap: 18px; }
+.article-end p { color: var(--muted); }

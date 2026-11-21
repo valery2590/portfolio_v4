@@ -8,6 +8,8 @@ import Marquee from "@/components/Marquee";
 import StackSection from "@/components/StackSection";
 import Process from "@/components/Process";
 import Contact from "@/components/Contact";
+import BlogTeaser from "@/components/BlogTeaser";
+import SiteFooter from "@/components/SiteFooter";
 
 export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
@@ -23,15 +25,11 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <IntegrationMap t={t.integrations} />
         <Marquee label={t.companies.label} items={t.companies.items} />
         <StackSection t={t.stack} />
+        <BlogTeaser t={t.blog} lang={lang} />
         <Process t={t.process} />
         <Contact t={t.contact} />
       </main>
-      <footer className="site-footer">
-        <div className="wrap">
-          <span>© {new Date().getFullYear()} Valery Figueroa Huaman. {t.footer.rights}</span>
-          <span>Node.js · PHP · Python</span>
-        </div>
-      </footer>
+      <SiteFooter t={t} />
     </>
   );
 }

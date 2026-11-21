@@ -26,3 +26,10 @@ npm start
 - Herramientas del mapa: `CATS` en `components/IntegrationMap.tsx`.
 - Sectores (franja animada): `companies.items` en `dictionaries/*.ts`.
 - Datos de contacto: `components/Contact.tsx`.
+
+## Blog · Integraciones sin drama
+
+- Cada artículo es un archivo en `content/blog/<slug>.ts` con el texto en `es`, `en` e `it` (bloques: párrafo, subtítulo, lista, código, cita; admite `**negrita**` y `` `código` ``).
+- Regístralo en `POSTS` dentro de `lib/blog.ts` (el más reciente primero).
+- Imagen para compartir: `public/blog/<slug>-<idioma>.png` (1200×1200).
+- Rutas: `/<idioma>/blog` y `/<idioma>/blog/<slug>`. El sitemap se actualiza solo.
