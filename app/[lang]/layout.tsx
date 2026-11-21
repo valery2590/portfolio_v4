@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import { Bricolage_Grotesque, IBM_Plex_Sans, JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { getDictionary, isLocale, locales, SITE_URL } from "@/lib/i18n";
 import "../globals.css";
 
@@ -41,6 +42,28 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       siteName: "Valery Figueroa Huaman",
       locale: lang,
     },
+    twitter: { card: "summary_large_image", title: t.meta.title, description: t.meta.description },
+    authors: [{ name: "Valery Figueroa Huaman", url: SITE_URL }],
+  };
+}
+
+function personJsonLd(lang: string, description: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Valery Figueroa Huaman",
+    url: `${SITE_URL}/${lang}`,
+    jobTitle: "Software Solutions · Integrations Engineer",
+    description,
+    knowsLanguage: ["es", "en", "it"],
+    knowsAbout: [
+      "API integrations", "Webhooks", "CRM integration", "WhatsApp Business API",
+      "Node.js", "PHP", "Python", "Google Cloud", "Firebase", "Salesforce", "HubSpot", "Zoho",
+    ],
+    sameAs: [
+      "https://www.linkedin.com/in/valery-figueroa-huaman-01517982/",
+      "https://github.com/valery2590",
+    ],
   };
 }
 
@@ -50,10 +73,15 @@ export default async function LangLayout({
 }: Readonly<{ children: React.ReactNode; params: Promise<{ lang: string }> }>) {
   const { lang } = await params;
   if (!isLocale(lang)) notFound();
+  const jsonLd = personJsonLd(lang, getDictionary(lang).meta.description);
 
   return (
     <html lang={lang} className={`${display.variable} ${body.variable} ${mono.variable}`}>
-      <body>{children}</body>
+      <body>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
