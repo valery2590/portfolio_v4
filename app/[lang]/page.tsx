@@ -7,7 +7,6 @@ import IntegrationMap from "@/components/IntegrationMap";
 import Marquee from "@/components/Marquee";
 import StackSection from "@/components/StackSection";
 import Process from "@/components/Process";
-import Audience from "@/components/Audience";
 import Contact from "@/components/Contact";
 
 export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
@@ -22,10 +21,9 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <Hero t={t} />
         <CaseSection t={t.case} />
         <IntegrationMap t={t.integrations} />
-        <Marquee label={t.companies.label} />
+        <Marquee label={t.companies.label} items={t.companies.items} />
         <StackSection t={t.stack} />
         <Process t={t.process} />
-        <Audience t={t.audience} />
         <Contact t={t.contact} />
       </main>
       <footer className="site-footer">

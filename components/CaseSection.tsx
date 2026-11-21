@@ -7,7 +7,7 @@ import SectionHead from "./SectionHead";
 type Crm = "leadcars" | "hubspot" | "salesforce" | "zoho";
 type Json = string | number | { [k: string]: Json };
 
-const LEAD = { first: "Lucía", last: "Martín", phone: "+34611222812", interest: "Tucson Hybrid" };
+const LEAD = { first: "Lucía", last: "Martín", phone: "+34611222812", interest: "SUV híbrido" };
 
 const MAPS: Record<Crm, { name: string; method: string; path: string; body: Record<string, Json> }> = {
   leadcars: {

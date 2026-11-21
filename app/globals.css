@@ -250,13 +250,6 @@ button.tile { cursor: pointer; }
 .process h3 { font-size: 22px; }
 .process p { color: var(--muted); font-size: 15px; }
 
-/* Audience */
-.audience { display: grid; grid-template-columns: 1fr; gap: 20px; }
-@media (min-width: 820px) { .audience { grid-template-columns: 1fr 1fr; } }
-.aud { border: 1px solid var(--line); border-radius: 14px; padding: 28px; display: flex; flex-direction: column; gap: 12px; background: var(--surface); }
-.aud h3 { font-size: 24px; }
-.aud p { color: var(--muted); }
-.aud ul { margin: 0; padding-left: 18px; list-style: disc; color: var(--muted); font-size: 15px; display: flex; flex-direction: column; gap: 4px; }
 
 /* Contact */
 .contact { background: var(--ink); color: var(--bg); }

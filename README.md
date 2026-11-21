@@ -24,5 +24,5 @@ npm start
 
 - Textos: `dictionaries/*.ts`.
 - Herramientas del mapa: `CATS` en `components/IntegrationMap.tsx`.
-- Empresas: `COMPANIES` en `components/Marquee.tsx`.
+- Sectores (franja animada): `companies.items` en `dictionaries/*.ts`.
 - Datos de contacto: `components/Contact.tsx`.

@@ -11,7 +11,7 @@ const CATS: { id: CatId; color: string; tools: string[] }[] = [
   { id: "msg", color: "var(--c-msg)", tools: ["WhatsApp Business", "Google Chat", "Chatbots"] },
   { id: "sup", color: "var(--c-sup)", tools: ["Zendesk", "Freshdesk", "Linear"] },
   { id: "mkt", color: "var(--c-mkt)", tools: ["ActiveCampaign", "Mailchimp"] },
-  { id: "inm", color: "var(--c-inm)", tools: ["Inmobalia", "Casafari", "Vitec", "Tecnocasa"] },
+  { id: "inm", color: "var(--c-inm)", tools: ["Inmobalia", "Casafari", "Vitec"] },
 ];
 
 const CX = 500, CY = 310, RX1 = 165, RY1 = 125, RX2 = 300, RY2 = 238;

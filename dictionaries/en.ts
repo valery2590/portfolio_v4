@@ -17,11 +17,11 @@ const en: Dict = {
     home: "Home",
   },
   hero: {
-    eyebrow: "Open to projects · Software Solutions",
+    eyebrow: "Software Solutions · Integrations",
     titleA: "I connect your tools so they",
     titleEm: "run on their own.",
     lede: "I'm Valery Figueroa Huaman. For 5 years I've been building custom integrations in Node.js, PHP and Python: CRMs, WhatsApp, chatbots and APIs exchanging data in both directions, with retries, logs and alerts.",
-    ctaPrimary: "Tell me about your case →",
+    ctaPrimary: "Get in touch →",
     ctaSecondary: "See a real flow",
     facts: [
       { b: "5 years", t: "building integrations" },
@@ -72,7 +72,7 @@ const en: Dict = {
     title: "Tools I've already connected",
     lede: "Grouped by what they solve. If yours has an API or webhooks, it can be integrated.",
     filterAria: "Filter by category",
-    mapAria: "Radial map: a central middleware connected to five categories and 17 tools",
+    mapAria: "Radial map: a central middleware connected to five categories and 16 tools",
     cats: {
       crm: { name: "CRM & sales", desc: "Lead creation and updates, deduplication and automatic assignment to sales reps." },
       msg: { name: "Messaging", desc: "Conversations that land in the CRM and notifications that go back to the customer." },
@@ -81,7 +81,10 @@ const en: Dict = {
       inm: { name: "Real estate", desc: "Leads from property portals and real-estate CRMs unified in a single flow." },
     },
   },
-  companies: { label: "Companies I've worked with" },
+  companies: {
+    label: "Industries I've worked in",
+    items: ["Automotive", "Real estate", "Education", "Publishing"],
+  },
   stack: {
     eyebrow: "Stack",
     title: "Integrations written in code, built not to break",
@@ -117,31 +120,9 @@ const en: Dict = {
       { h: "Monitor", p: "Logs, retries and alerts so you know right away when something fails, before your team notices." },
     ],
   },
-  audience: {
-    eyebrow: "Collaboration",
-    title: "Two ways to work together",
-    team: {
-      h: "For your team",
-      p: "I join as a Software Solutions or Integrations Engineer, full-time or on contract.",
-      items: [
-        "Owning integrations with partners and customers",
-        "Middleware, queue and webhook architecture",
-        "Working closely with product, support and sales",
-      ],
-    },
-    project: {
-      h: "For your project",
-      p: "I deliver a specific integration end to end, as a freelancer.",
-      items: [
-        "Connect your CRM with WhatsApp, forms or portals",
-        "Replace fragile Zapier or Make automations with proper code",
-        "Audit and stabilize integrations that keep failing",
-      ],
-    },
-  },
   contact: {
-    title: "Which of your tools don't talk to each other?",
-    lede: "Tell me what you use and which task you repeat every day. I'll reply with an integration proposal.",
+    title: "Let's talk integrations",
+    lede: "If something here caught your interest, or you want to talk through an integration problem, drop me a line.",
     email: "Email",
     copy: "Copy",
     copied: "Copied",
