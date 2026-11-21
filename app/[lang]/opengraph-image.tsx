@@ -37,11 +37,12 @@ export default async function OgImage({ params }: { params: Promise<{ lang: stri
   const t = getDictionary(isLocale(lang) ? lang : "es");
   const title = `${t.hero.titleA} ${t.hero.titleEm}`;
   const sources = ["Chatbot", "WhatsApp", "Webhook"];
-  const targets = ["LeadCars", "HubSpot", "Salesforce", "Zoho"];
+  const targets = ["Salesforce", "HubSpot", "Zoho", "LeadCars", "Zendesk"];
+  const more = { es: "+15 más", en: "+15 more", it: "+15 altri" }[isLocale(lang) ? lang : "es"];
   const tagline = "Node.js · PHP · Python";
   const name = "Valery Figueroa Huaman";
 
-  const allText = title + name + tagline + sources.join("") + targets.join("") + "Middleware valeryfigueroahuaman.com";
+  const allText = title + name + tagline + sources.join("") + targets.join("") + more + "Middleware valeryfigueroahuaman.com";
   const [display, mono] = await Promise.all([
     loadFont("Bricolage+Grotesque", 800, allText),
     loadFont("JetBrains+Mono", 500, allText),
@@ -51,12 +52,15 @@ export default async function OgImage({ params }: { params: Promise<{ lang: stri
     mono && { name: "Mono", data: mono, weight: 500 as const, style: "normal" as const },
   ].filter(Boolean) as { name: string; data: ArrayBuffer; weight: 800 | 500; style: "normal" }[];
 
-  const node = (label: string, dot?: string) => (
+  const node = (label: string, dot?: string, small = false, ghost = false) => (
     <div
       key={label}
       style={{
-        display: "flex", alignItems: "center", gap: 10, padding: "10px 16px", borderRadius: 12,
-        background: C.surface, border: `1.5px solid ${C.wire}`, color: C.ink, fontSize: 20, fontFamily: "Mono",
+        display: "flex", alignItems: "center", gap: 10, borderRadius: 12, fontFamily: "Mono",
+        padding: small ? "7px 13px" : "10px 16px", fontSize: small ? 17 : 20,
+        background: ghost ? "transparent" : C.surface,
+        border: `1.5px ${ghost ? "dashed" : "solid"} ${ghost ? C.accent : C.wire}`,
+        color: ghost ? C.accent : C.ink,
       }}
     >
       {dot && <div style={{ width: 12, height: 12, borderRadius: 6, background: dot }} />}
@@ -96,8 +100,9 @@ export default async function OgImage({ params }: { params: Promise<{ lang: stri
             Middleware
           </div>
           <div style={{ display: "flex", flex: 1, height: 2, margin: "0 18px", borderTop: `2px dashed ${C.wire}` }} />
-          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-            {targets.slice(0, 2).map((x) => node(x))}
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 8, width: 250, justifyContent: "flex-end" }}>
+            {targets.map((x) => node(x, undefined, true))}
+            {node(more, undefined, true, true)}
           </div>
         </div>
 
