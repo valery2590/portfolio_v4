@@ -2,6 +2,8 @@ import type { Dict } from "@/lib/i18n";
 import Image from "next/image";
 import SectionHead from "./SectionHead";
 
+const LINKEDIN = "https://www.linkedin.com/in/valery-figueroa-huaman-01517982/";
+
 export default function About({ t }: { t: Dict["about"] }) {
   return (
     <section className="block" id="sobre-mi">
@@ -19,6 +21,20 @@ export default function About({ t }: { t: Dict["about"] }) {
               <li key={f}>{f}</li>
             ))}
           </ul>
+          <div className="about-timeline">
+            <span className="step-label">{t.timelineLabel}</span>
+            <ol>
+              {t.timeline.map((e) => (
+                <li key={e.y}>
+                  <time>{e.y}</time>
+                  <span>{e.r}</span>
+                </li>
+              ))}
+            </ol>
+            <a className="about-link" href={LINKEDIN} target="_blank" rel="noopener noreferrer">
+              {t.linkedinCta}
+            </a>
+          </div>
         </div>
       </div>
     </section>
