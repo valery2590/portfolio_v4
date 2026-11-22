@@ -17,6 +17,7 @@ export default function Header({ t, lang, subpath = "" }: { t: Dict; lang: Local
           <a href={`${home}#integraciones`}>{t.nav.integrations}</a>
           <a href={`${home}#stack`}>{t.nav.stack}</a>
           <Link href={`${home}/blog`}>{t.nav.blog}</Link>
+          <a href={`${home}#sobre-mi`}>{t.nav.about}</a>
           <a href={`${home}#contacto`}>{t.nav.contact}</a>
         </nav>
         <div className="lang" role="group" aria-label={t.nav.language}>

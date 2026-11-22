@@ -7,6 +7,7 @@ import IntegrationMap from "@/components/IntegrationMap";
 import Marquee from "@/components/Marquee";
 import StackSection from "@/components/StackSection";
 import Process from "@/components/Process";
+import About from "@/components/About";
 import Contact from "@/components/Contact";
 import BlogTeaser from "@/components/BlogTeaser";
 import SiteFooter from "@/components/SiteFooter";
@@ -27,6 +28,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <StackSection t={t.stack} />
         <BlogTeaser t={t.blog} lang={lang} />
         <Process t={t.process} />
+        <About t={t.about} />
         <Contact t={t.contact} />
       </main>
       <SiteFooter t={t} />
