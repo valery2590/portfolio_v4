@@ -18,6 +18,8 @@ const it: Dict = {
     home: "Home",
     blog: "Blog",
     theme: "Passa tra modalità chiara e scura",
+    menuOpen: "Apri menu",
+    menuClose: "Chiudi menu",
   },
   hero: {
     eyebrow: "Software Solutions · Integrazioni",
