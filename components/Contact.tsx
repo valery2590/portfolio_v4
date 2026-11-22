@@ -25,6 +25,10 @@ export default function Contact({ t }: { t: Dict["contact"] }) {
               <CopyButton text={EMAIL} label={t.copy} done={t.copied} />
             </span>
           </div>
+          <a className="channel" href={t.cvHref} download>
+            <span className="ch-label">{t.cv}</span>
+            <span className="v">{t.cvValue} ↓</span>
+          </a>
           {LINKS.map((l) => (
             <a key={l.label} className="channel" href={l.href} target="_blank" rel="noopener noreferrer">
               <span className="ch-label">{l.label}</span>

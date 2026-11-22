@@ -129,6 +129,9 @@ const es = {
     email: "Email",
     copy: "Copiar",
     copied: "Copiado",
+    cv: "CV",
+    cvValue: "Descargar PDF",
+    cvHref: "/cv/Valery-Figueroa-Huaman-CV-ES.pdf",
   },
   blog: {
     eyebrow: "Blog",
@@ -161,6 +164,8 @@ const es = {
       { y: "2024", r: "Solutions Developer · integraciones" },
     ],
     linkedinCta: "Trayectoria completa en LinkedIn →",
+    cvCta: "Descargar CV (PDF)",
+    cvHref: "/cv/Valery-Figueroa-Huaman-CV-ES.pdf",
     photoAlt: "Valery Figueroa Huaman sentado y sonriendo bajo un árbol",
   },
   footer: { rights: "Todos los derechos reservados." },

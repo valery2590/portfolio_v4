@@ -131,6 +131,9 @@ const it: Dict = {
     email: "Email",
     copy: "Copia",
     copied: "Copiato",
+    cv: "CV",
+    cvValue: "Scarica PDF",
+    cvHref: "/cv/Valery-Figueroa-Huaman-CV-IT.pdf",
   },
   blog: {
     eyebrow: "Blog",
@@ -163,6 +166,8 @@ const it: Dict = {
       { y: "2024", r: "Solutions Developer · integrazioni" },
     ],
     linkedinCta: "Percorso completo su LinkedIn →",
+    cvCta: "Scarica il CV (PDF)",
+    cvHref: "/cv/Valery-Figueroa-Huaman-CV-IT.pdf",
     photoAlt: "Valery Figueroa Huaman seduto e sorridente sotto un albero",
   },
   footer: { rights: "Tutti i diritti riservati." },

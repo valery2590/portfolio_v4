@@ -31,9 +31,17 @@ export default function About({ t }: { t: Dict["about"] }) {
                 </li>
               ))}
             </ol>
-            <a className="about-link" href={LINKEDIN} target="_blank" rel="noopener noreferrer">
-              {t.linkedinCta}
-            </a>
+            <div className="about-actions">
+              <a className="btn-cv" href={t.cvHref} download>
+                <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                  <path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                {t.cvCta}
+              </a>
+              <a className="about-link" href={LINKEDIN} target="_blank" rel="noopener noreferrer">
+                {t.linkedinCta}
+              </a>
+            </div>
           </div>
         </div>
       </div>
