@@ -66,7 +66,7 @@ En `content/temas.md`, marca el tema como hecho (`- [x]`) y añade `→ #N <slug
 Ejecuta `npx tsc --noEmit` y `npm run lint`. Si hay errores, corrígelos. (No hace falta `npm run build`: a veces falla al descargar fuentes de Google y no indica un error real.)
 
 ### 7. Entregables
-- **En el Mac de Valery** (existe `~/Documents/personal`): ejecuta `bash .claude/skills/nuevo-post/scripts/exportar.sh <slug>`. Arranca la web en local y guarda `linkedin-en.txt` y `linkedin-en.png` (inglés) y `story-instagram.png` (español) en `~/Documents/personal/integraciones-sin-drama/<fecha> - #<N> - <título corto>/` (el título corto es el título en español hasta los dos puntos), y abre la carpeta. Ahí están también los posts anteriores y `_perfil/` (banner de LinkedIn). Mira las dos imágenes (Read) y, si el texto se sale o queda mal repartido, acorta `hook`/`points` y vuelve a exportar.
+- **En el Mac de Valery** (existe `~/Documents/personal`): ejecuta `bash .claude/skills/nuevo-post/scripts/exportar.sh <slug>`. Arranca la web en local y guarda `linkedin-en.txt` y `linkedin-en.png` (inglés) y `story-instagram.png` (español) en `~/Documents/personal/marca-personal/integraciones-sin-drama/<fecha> - #<N> - <título corto>/` (el título corto es el título en español hasta los dos puntos), y abre la carpeta. Ahí están también los posts anteriores; el logo, el CV y los textos del perfil están en `~/Documents/personal/marca-personal/identidad/`. Mira las dos imágenes (Read) y, si el texto se sale o queda mal repartido, acorta `hook`/`points` y vuelve a exportar.
 - **En la nube / móvil**: no hay carpetas locales. Cuando el cambio esté publicado, los archivos estarán en:
   - `https://valeryfigueroahuaman.com/social/en/<slug>/linkedin.txt` (LinkedIn, inglés)
   - `https://valeryfigueroahuaman.com/social/en/<slug>/square.png` (imagen de LinkedIn, inglés)
@@ -80,7 +80,7 @@ Ejecuta `npx tsc --noEmit` y `npm run lint`. Si hay errores, corrígelos. (No ha
 ### 9. Resumen final
 Responde en español, breve:
 1. Tema y número (#N), y si generalizaste algo del tema para que no apunte a su trabajo.
-2. Dónde están los archivos (carpeta de `integraciones-sin-drama` o URLs).
+2. Dónde están los archivos (carpeta de `marca-personal/integraciones-sin-drama` o URLs).
 3. Cómo publicar:
    - **LinkedIn (inglés)**: pega `linkedin-en.txt` (Cmd+A, Cmd+C), añade `linkedin-en.png` y publica. Después, en el **primer comentario**: "Full article on my site 👉 https://valeryfigueroahuaman.com/en/blog/<slug>".
    - **Instagram (español, cuenta personal → solo story)**: sube `story-instagram.png` y añade el sticker **Enlace** con `https://valeryfigueroahuaman.com/es/blog/<slug>` en el hueco de abajo.

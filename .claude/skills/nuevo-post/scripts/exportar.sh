@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Exporta los entregables de un post a ~/Documents/personal/integraciones-sin-drama/<fecha> - #N - <título>/.
+# Exporta los entregables de un post a ~/Documents/personal/marca-personal/integraciones-sin-drama/<fecha> - #N - <título>/.
 # LinkedIn se publica en inglés y la story de Instagram en español.
 # Uso: bash .claude/skills/nuevo-post/scripts/exportar.sh <slug>
 #      bash .claude/skills/nuevo-post/scripts/exportar.sh <slug> --live   (descarga desde la web publicada)
@@ -10,7 +10,7 @@ MODE="${2:-local}"
 ROOT="$(cd "$(dirname "$0")/../../../.." && pwd)"
 PORT=3199
 
-# Carpeta destino: ~/Documents/personal/integraciones-sin-drama/<fecha> - #<N> - <título corto>/
+# Carpeta destino: ~/Documents/personal/marca-personal/integraciones-sin-drama/<fecha> - #<N> - <título corto>/
 # (el título corto es el título en español hasta los dos puntos; ':' y '?' no valen en nombres de carpeta).
 FOLDER=$(python3 - "$ROOT/content/blog/$SLUG.ts" <<'PY'
 import re, sys
@@ -22,7 +22,7 @@ short = title.split(":")[0].replace("¿", "").replace("?", "").replace("/", "-")
 print(f"{date} - #{num} - {short}")
 PY
 )
-OUT="${NUEVO_POST_DIR:-$HOME/Documents/personal/integraciones-sin-drama}/$FOLDER"
+OUT="${NUEVO_POST_DIR:-$HOME/Documents/personal/marca-personal/integraciones-sin-drama}/$FOLDER"
 mkdir -p "$OUT"
 
 if [ "$MODE" = "--live" ]; then
