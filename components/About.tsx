@@ -2,7 +2,7 @@ import type { Dict } from "@/lib/i18n";
 import Image from "next/image";
 import SectionHead from "./SectionHead";
 
-const LINKEDIN = "https://www.linkedin.com/in/valery-figueroa-huaman-01517982/";
+const LINKEDIN = "https://www.linkedin.com/in/valeryfigueroahuaman/";
 
 export default function About({ t }: { t: Dict["about"] }) {
   return (

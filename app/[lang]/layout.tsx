@@ -63,7 +63,7 @@ function personJsonLd(lang: string, description: string) {
       "Node.js", "PHP", "Python", "Google Cloud", "Firebase", "Salesforce", "HubSpot", "Zoho",
     ],
     sameAs: [
-      "https://www.linkedin.com/in/valery-figueroa-huaman-01517982/",
+      "https://www.linkedin.com/in/valeryfigueroahuaman/",
       "https://github.com/valery2590",
     ],
   };

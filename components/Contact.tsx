@@ -4,7 +4,7 @@ import CopyButton from "./CopyButton";
 const EMAIL = "valeryfigueroah@gmail.com";
 
 const LINKS = [
-  { label: "LinkedIn", value: "valery-figueroa-huaman", href: "https://www.linkedin.com/in/valery-figueroa-huaman-01517982/" },
+  { label: "LinkedIn", value: "valeryfigueroahuaman", href: "https://www.linkedin.com/in/valeryfigueroahuaman/" },
   { label: "GitHub", value: "valery2590", href: "https://github.com/valery2590" },
   { label: "WhatsApp", value: "+34 680 535 856", href: "https://wa.me/34680535856" },
 ];
