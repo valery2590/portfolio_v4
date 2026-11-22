@@ -313,6 +313,12 @@ button.tile { cursor: pointer; }
 .channel .v { font-family: var(--f-mono); font-size: 14px; overflow-wrap: anywhere; text-align: right; }
 .copy { font: 500 12px var(--f-mono); color: var(--bg); border: 1px solid color-mix(in srgb, var(--bg) 35%, transparent); border-radius: 6px; padding: 4px 8px; cursor: pointer; flex: none; }
 a.channel:hover { background: color-mix(in srgb, var(--bg) 8%, var(--ink)); }
+.channel .v { white-space: nowrap; }
+@media (max-width: 560px) {
+  .channel { flex-direction: column; align-items: flex-start; gap: 6px; padding: 14px 16px; }
+  .ch-value { width: 100%; justify-content: space-between; }
+  .channel .v { font-size: 15px; text-align: left; }
+}
 
 .site-footer { padding-block: 24px; font-family: var(--f-mono); font-size: 12px; color: var(--muted); }
 .site-footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
