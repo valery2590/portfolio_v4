@@ -138,6 +138,10 @@ const es = {
     read: "Leer",
     all: "Ver todos los artículos",
     endNote: "Este artículo es parte de Integraciones sin drama: cada semana, un patrón nuevo.",
+    share: "Comparte este artículo",
+    shareNative: "Compartir…",
+    copyLink: "Copiar enlace",
+    linkCopied: "Enlace copiado ✓",
   },
   about: {
     eyebrow: "Sobre mí",

@@ -5,6 +5,7 @@ import { getDictionary, isLocale, locales, SITE_URL } from "@/lib/i18n";
 import { formatDate, getPost, POSTS, readingMinutes } from "@/lib/blog";
 import Header from "@/components/Header";
 import Prose from "@/components/Prose";
+import ShareBar from "@/components/ShareBar";
 import SiteFooter from "@/components/SiteFooter";
 
 export function generateStaticParams() {
@@ -71,6 +72,11 @@ export default async function BlogPost({ params }: Params) {
               {formatDate(post.date, lang)} · {readingMinutes(c)} {t.blog.minutes}
             </p>
             <Prose blocks={c.body} />
+            <ShareBar
+              url={`${SITE_URL}/${lang}/blog/${slug}`}
+              title={c.title}
+              t={{ title: t.blog.share, native: t.blog.shareNative, copy: t.blog.copyLink, copied: t.blog.linkCopied }}
+            />
             <div className="article-end">
               <p>{t.blog.endNote}</p>
               <div className="ctas">

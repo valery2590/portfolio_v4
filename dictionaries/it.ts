@@ -140,6 +140,10 @@ const it: Dict = {
     read: "Leggi",
     all: "Vedi tutti gli articoli",
     endNote: "Questo articolo fa parte di Integrazioni senza drammi: un nuovo pattern ogni settimana.",
+    share: "Condividi questo articolo",
+    shareNative: "Condividi…",
+    copyLink: "Copia link",
+    linkCopied: "Link copiato ✓",
   },
   about: {
     eyebrow: "Chi sono",

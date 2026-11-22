@@ -370,3 +370,13 @@ a.channel:hover { background: color-mix(in srgb, var(--bg) 8%, var(--ink)); }
 .prose blockquote { border-left: 3px solid var(--signal); background: color-mix(in srgb, var(--signal) 8%, var(--surface)); padding: 16px 20px; border-radius: 0 10px 10px 0; font-size: 16px; }
 .article-end { margin-top: 36px; padding: 26px; border-radius: 14px; background: var(--surface); border: 1px solid var(--line); display: flex; flex-direction: column; gap: 18px; }
 .article-end p { color: var(--muted); }
+
+/* Share (blog articles) */
+.share { display: flex; flex-direction: column; gap: 12px; margin-top: 28px; padding: 20px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.share-label { font: 500 12px var(--f-mono); color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+.share-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.share-btn { font: 500 13px var(--f-mono); color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; cursor: pointer; text-decoration: none; line-height: 1.2; }
+.share-btn:hover { border-color: var(--wire); }
+.share-btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+@media (min-width: 700px) { .share { flex-direction: row; align-items: center; justify-content: space-between; } }
+@media (max-width: 420px) { .share-btn { flex: 1 1 calc(50% - 4px); text-align: center; padding: 11px 12px; } .share-btn.primary { flex-basis: 100%; } }
