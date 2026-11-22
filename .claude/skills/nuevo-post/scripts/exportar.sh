@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+# Exporta los entregables de un post a ~/Documents/personal/integraciones-sin-drama/<fecha> - #N - <título>/.
+# Uso: bash .claude/skills/nuevo-post/scripts/exportar.sh <slug> [idioma=es]
+#      bash .claude/skills/nuevo-post/scripts/exportar.sh <slug> es --live   (descarga desde la web publicada)
+set -euo pipefail
+
+SLUG="${1:?Uso: exportar.sh <slug> [idioma] [--live]}"
+LANG_CODE="${2:-es}"
+MODE="${3:-local}"
+ROOT="$(cd "$(dirname "$0")/../../../.." && pwd)"
+PORT=3199
+
+# Carpeta destino: ~/Documents/personal/integraciones-sin-drama/<fecha> - #<N> - <título corto>/
+# (el título corto es el título en español hasta los dos puntos; ':' y '?' no valen en nombres de carpeta).
+FOLDER=$(python3 - "$ROOT/content/blog/$SLUG.ts" <<'PY'
+import re, sys
+src = open(sys.argv[1], encoding="utf-8").read()
+num = re.search(r'number:\s*(\d+)', src).group(1)
+date = re.search(r'date:\s*"([^"]+)"', src).group(1)
+title = re.search(r'title:\s*"([^"]+)"', src).group(1)   # el primero es el de "es"
+short = title.split(":")[0].replace("¿", "").replace("?", "").replace("/", "-").strip()
+print(f"{date} - #{num} - {short}")
+PY
+)
+OUT="${NUEVO_POST_DIR:-$HOME/Documents/personal/integraciones-sin-drama}/$FOLDER"
+mkdir -p "$OUT"
+
+if [ "$MODE" = "--live" ]; then
+  BASE="https://valeryfigueroahuaman.com"
+else
+  BASE="http://localhost:$PORT"
+  cd "$ROOT"
+  npx next dev -p "$PORT" > /tmp/nuevo-post-dev.log 2>&1 &
+  DEV_PID=$!
+  trap 'kill $DEV_PID 2>/dev/null || true' EXIT
+  for _ in $(seq 1 60); do
+    curl -s -o /dev/null "$BASE/$LANG_CODE" && break
+    sleep 1
+  done
+fi
+
+fetch() { # url destino
+  local code
+  code=$(curl -s -o "$2" -w "%{http_code}" "$1")
+  if [ "$code" != "200" ]; then echo "✗ $1 → HTTP $code"; rm -f "$2"; return 1; fi
+  echo "✓ $(basename "$2")"
+}
+
+SUFFIX=""; [ "$LANG_CODE" != "es" ] && SUFFIX="-$LANG_CODE"
+fetch "$BASE/social/$LANG_CODE/$SLUG/linkedin.txt" "$OUT/linkedin$SUFFIX.txt" || true
+fetch "$BASE/social/$LANG_CODE/$SLUG/square.png" "$OUT/linkedin$SUFFIX.png"
+fetch "$BASE/social/$LANG_CODE/$SLUG/story.png" "$OUT/story-instagram$SUFFIX.png"
+
+echo "→ $OUT"
+command -v open >/dev/null && open "$OUT" || true
