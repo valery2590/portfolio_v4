@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import type { Dict } from "@/lib/i18n";
 import SectionHead from "./SectionHead";
 
@@ -66,7 +66,16 @@ export default function IntegrationMap({ t }: { t: Dict["integrations"] }) {
   const color = (id: CatId) => CATS.find((c) => c.id === id)!.color;
 
   const [active, setActive] = useState<CatId>("crm");
-  const [reduce, setReduce] = useState(false);
+  // Reduced-motion preference, read without a setState-in-effect (false on the server).
+  const reduce = useSyncExternalStore(
+    (cb) => {
+      const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+      mq.addEventListener("change", cb);
+      return () => mq.removeEventListener("change", cb);
+    },
+    () => window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+    () => false,
+  );
   const auto = useRef(true);
   const hovering = useRef(false);
   const activeRef = useRef(active);
@@ -76,10 +85,6 @@ export default function IntegrationMap({ t }: { t: Dict["integrations"] }) {
   useEffect(() => {
     activeRef.current = active;
   }, [active]);
-
-  useEffect(() => {
-    setReduce(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
-  }, []);
 
   // Cycle categories until the visitor picks one.
   useEffect(() => {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 
 type Labels = { title: string; native: string; copy: string; copied: string };
 
@@ -9,12 +9,13 @@ type Labels = { title: string; native: string; copy: string; copied: string };
  * Where the browser supports the Web Share API (most phones), a native "Share…" button is added first.
  */
 export default function ShareBar({ url, title, t }: { url: string; title: string; t: Labels }) {
-  const [canShare, setCanShare] = useState(false);
+  // Web Share API support never changes during a visit; false on the server, real value after hydration.
+  const canShare = useSyncExternalStore(
+    () => () => {},
+    () => typeof navigator.share === "function",
+    () => false,
+  );
   const [copied, setCopied] = useState(false);
-
-  useEffect(() => {
-    setCanShare(typeof navigator !== "undefined" && typeof navigator.share === "function");
-  }, []);
 
   const u = encodeURIComponent(url);
   const links = [

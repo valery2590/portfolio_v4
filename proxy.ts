@@ -9,7 +9,7 @@ function preferredLocale(req: NextRequest): string {
   return wanted.find((l) => (locales as readonly string[]).includes(l)) ?? defaultLocale;
 }
 
-export function middleware(req: NextRequest) {
+export function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
   const hasLocale = locales.some((l) => pathname === `/${l}` || pathname.startsWith(`/${l}/`));
   if (hasLocale) return;

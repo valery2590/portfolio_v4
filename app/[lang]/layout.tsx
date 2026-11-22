@@ -78,7 +78,7 @@ export default async function LangLayout({
   const jsonLd = personJsonLd(lang, getDictionary(lang).meta.description);
 
   return (
-    <html lang={lang} className={`${display.variable} ${body.variable} ${mono.variable}`} suppressHydrationWarning>
+    <html lang={lang} className={`${display.variable} ${body.variable} ${mono.variable}`} data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
         {/* Apply the saved theme before first paint (see components/ThemeToggle.tsx) */}
         <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
