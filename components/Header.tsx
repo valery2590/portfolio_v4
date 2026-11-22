@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { locales, type Dict, type Locale } from "@/lib/i18n";
 import Logo from "./Logo";
+import ThemeToggle from "./ThemeToggle";
 
 /** `subpath` keeps the visitor on the same page when switching language (e.g. "/blog/cache-cdn"). */
 export default function Header({ t, lang, subpath = "" }: { t: Dict; lang: Locale; subpath?: string }) {
@@ -20,12 +21,15 @@ export default function Header({ t, lang, subpath = "" }: { t: Dict; lang: Local
           <a href={`${home}#sobre-mi`}>{t.nav.about}</a>
           <a href={`${home}#contacto`}>{t.nav.contact}</a>
         </nav>
-        <div className="lang" role="group" aria-label={t.nav.language}>
-          {locales.map((l) => (
-            <Link key={l} href={`/${l}${subpath}`} hrefLang={l} aria-current={l === lang ? "true" : undefined}>
-              {l.toUpperCase()}
-            </Link>
-          ))}
+        <div className="header-actions">
+          <div className="lang" role="group" aria-label={t.nav.language}>
+            {locales.map((l) => (
+              <Link key={l} href={`/${l}${subpath}`} hrefLang={l} aria-current={l === lang ? "true" : undefined}>
+                {l.toUpperCase()}
+              </Link>
+            ))}
+          </div>
+          <ThemeToggle label={t.nav.theme} />
         </div>
       </div>
     </header>

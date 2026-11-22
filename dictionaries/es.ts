@@ -15,6 +15,7 @@ const es = {
     language: "Idioma",
     home: "Inicio",
     blog: "Blog",
+    theme: "Cambiar entre modo claro y oscuro",
   },
   hero: {
     eyebrow: "Software Solutions · Integraciones",

@@ -17,6 +17,7 @@ const it: Dict = {
     language: "Lingua",
     home: "Home",
     blog: "Blog",
+    theme: "Passa tra modalità chiara e scura",
   },
   hero: {
     eyebrow: "Software Solutions · Integrazioni",

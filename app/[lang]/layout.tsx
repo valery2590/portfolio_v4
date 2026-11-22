@@ -15,6 +15,8 @@ export function generateStaticParams() {
 
 export const dynamicParams = false;
 
+const THEME_SCRIPT = 'try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark"){document.documentElement.dataset.theme=t}}catch(e){}';
+
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#EDEFF4" },
@@ -76,7 +78,11 @@ export default async function LangLayout({
   const jsonLd = personJsonLd(lang, getDictionary(lang).meta.description);
 
   return (
-    <html lang={lang} className={`${display.variable} ${body.variable} ${mono.variable}`}>
+    <html lang={lang} className={`${display.variable} ${body.variable} ${mono.variable}`} suppressHydrationWarning>
+      <head>
+        {/* Apply the saved theme before first paint (see components/ThemeToggle.tsx) */}
+        <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
+      </head>
       <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         {children}

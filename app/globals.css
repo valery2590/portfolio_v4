@@ -21,8 +21,9 @@
   --f-body: var(--font-body), system-ui, -apple-system, sans-serif;
   --f-mono: var(--font-mono), ui-monospace, "SF Mono", Menlo, monospace;
 }
+/* Dark theme: follows the OS unless the visitor picked light; or forced via the toggle */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg: #0D1120; --surface: #161B2D; --ink: #E7EAF3; --muted: #98A0B6; --wire: #4A5372;
     --line: #262D44; --accent: #8D89FF; --accent-ink: #0D1120; --signal: #FF9A55; --dot: #222942;
     --code-bg: #0A0E1A; --code-fg: #DCE1EE; --ok: #3DD68C;
@@ -31,6 +32,15 @@
     color-scheme: dark;
   }
 }
+:root[data-theme="dark"] {
+  --bg: #0D1120; --surface: #161B2D; --ink: #E7EAF3; --muted: #98A0B6; --wire: #4A5372;
+  --line: #262D44; --accent: #8D89FF; --accent-ink: #0D1120; --signal: #FF9A55; --dot: #222942;
+  --code-bg: #0A0E1A; --code-fg: #DCE1EE; --ok: #3DD68C;
+  --c-crm: #8D89FF; --c-msg: #3DD68C; --c-sup: #4CC6E6; --c-mkt: #FF9A55; --c-inm: #EC7FD3;
+  --t-js: #F2CF3C; --t-node: #6CCB66; --t-php: #9EA1FF; --t-py: #6FB0FF; --t-n8n: #FF6F91; --t-make: #C08BFF; --t-zap: #FF9A55;
+  color-scheme: dark;
+}
+:root[data-theme="light"] { color-scheme: light; }
 
 html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 body {
@@ -67,6 +77,13 @@ nav.links a:hover { color: var(--ink); }
 .lang a { padding: 3px 9px; border-radius: 999px; color: var(--muted); }
 .lang a:hover { color: var(--ink); }
 .lang a[aria-current="true"] { background: var(--ink); color: var(--bg); }
+.header-actions { display: flex; align-items: center; gap: 8px; }
+.theme-toggle { width: 30px; height: 30px; flex: none; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: var(--muted); cursor: pointer; padding: 0; }
+.theme-toggle:hover { color: var(--ink); border-color: var(--wire); }
+.theme-toggle .i-sun { display: none; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .theme-toggle .i-sun { display: block; } :root:not([data-theme="light"]) .theme-toggle .i-moon { display: none; } }
+:root[data-theme="dark"] .theme-toggle .i-sun { display: block; }
+:root[data-theme="dark"] .theme-toggle .i-moon { display: none; }
 @media (max-width: 760px) {
   html { scroll-padding-top: 120px; }
   header.top .wrap { flex-wrap: wrap; row-gap: 10px; padding-block: 12px 0; }
