@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 # Exporta los entregables de un post a ~/Documents/personal/integraciones-sin-drama/<fecha> - #N - <título>/.
-# Uso: bash .claude/skills/nuevo-post/scripts/exportar.sh <slug> [idioma=es]
-#      bash .claude/skills/nuevo-post/scripts/exportar.sh <slug> es --live   (descarga desde la web publicada)
+# LinkedIn se publica en inglés y la story de Instagram en español.
+# Uso: bash .claude/skills/nuevo-post/scripts/exportar.sh <slug>
+#      bash .claude/skills/nuevo-post/scripts/exportar.sh <slug> --live   (descarga desde la web publicada)
 set -euo pipefail
 
-SLUG="${1:?Uso: exportar.sh <slug> [idioma] [--live]}"
-LANG_CODE="${2:-es}"
-MODE="${3:-local}"
+SLUG="${1:?Uso: exportar.sh <slug> [--live]}"
+MODE="${2:-local}"
 ROOT="$(cd "$(dirname "$0")/../../../.." && pwd)"
 PORT=3199
 
@@ -34,7 +34,7 @@ else
   DEV_PID=$!
   trap 'kill $DEV_PID 2>/dev/null || true' EXIT
   for _ in $(seq 1 60); do
-    curl -s -o /dev/null "$BASE/$LANG_CODE" && break
+    curl -s -o /dev/null "$BASE/es" && break
     sleep 1
   done
 fi
@@ -46,10 +46,9 @@ fetch() { # url destino
   echo "✓ $(basename "$2")"
 }
 
-SUFFIX=""; [ "$LANG_CODE" != "es" ] && SUFFIX="-$LANG_CODE"
-fetch "$BASE/social/$LANG_CODE/$SLUG/linkedin.txt" "$OUT/linkedin$SUFFIX.txt" || true
-fetch "$BASE/social/$LANG_CODE/$SLUG/square.png" "$OUT/linkedin$SUFFIX.png"
-fetch "$BASE/social/$LANG_CODE/$SLUG/story.png" "$OUT/story-instagram$SUFFIX.png"
+fetch "$BASE/social/en/$SLUG/linkedin.txt" "$OUT/linkedin-en.txt"
+fetch "$BASE/social/en/$SLUG/square.png" "$OUT/linkedin-en.png"
+fetch "$BASE/social/es/$SLUG/story.png" "$OUT/story-instagram.png"
 
 echo "→ $OUT"
 command -v open >/dev/null && open "$OUT" || true

@@ -91,6 +91,38 @@ Cada semana, un patrón nuevo. Sígueme si no quieres perderte el siguiente.
         highlight: "You need to read the ones you already have.",
         points: ["Every lead data point is a signal", "Scoring turns signals into priority", "The key is connecting chat, forms and CRM"],
       },
+      linkedin: `Not every lead is worth the same.
+But most CRMs treat them all alike.
+
+A lead asking about pricing at 10am, from a specific campaign, after visiting three pages…
+
+…is nothing like one who just drops an email into a generic form.
+
+And yet both usually end up in the same list, with the same priority.
+
+Every data point you receive already says something:
+
+→ Where it comes from: the campaign, the portal or the channel.
+→ What it asks: pricing, availability or general info.
+→ When and how it replies: fast, late or never.
+→ What it saw before: pages, products, previous interactions.
+
+Lead scoring turns those signals into a number.
+And that number into a decision: who to call first. 📞
+
+The opportunity isn't getting more leads.
+It's reading the ones you already have.
+
+Most companies have this data scattered across chat, forms and the CRM, unconnected.
+
+That's where a good integration changes the game: it doesn't just move data from A to B, it turns it into priority for the sales team.
+
+Does your team tell hot leads from cold ones, or does everyone come in through the same door? 👇
+
+📌 This is #2 of Integrations without drama.
+A new pattern every week. Follow me so you don't miss the next one.
+
+#IntegrationsWithoutDrama #leadscoring #crm #sales`,
       body: [
         { t: "p", text: "Not every lead is worth the same. Yet in many CRMs they all come through the same door, with the same priority, into the same list." },
         { t: "p", text: "A lead asking about pricing mid-morning, from a specific campaign, after visiting three pages, is nothing like one who just leaves an email in a generic form. And still, the sales team sees them the same way." },
