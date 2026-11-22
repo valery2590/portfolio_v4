@@ -18,7 +18,23 @@ export default function MobileMenu({
   closeLabel: string;
 }) {
   const [open, setOpen] = useState(false);
+  const [height, setHeight] = useState<number>();
   const root = useRef<HTMLDivElement>(null);
+
+  // Full-screen panel: fill the viewport below the header and stop the page from scrolling behind it.
+  useEffect(() => {
+    if (!open) return;
+    const header = root.current?.closest("header");
+    const fit = () => setHeight(window.innerHeight - (header?.getBoundingClientRect().bottom ?? 0));
+    fit();
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("resize", fit);
+    return () => {
+      document.body.style.overflow = prev;
+      window.removeEventListener("resize", fit);
+    };
+  }, [open]);
 
   useEffect(() => {
     if (!open) return;
@@ -54,7 +70,7 @@ export default function MobileMenu({
           )}
         </svg>
       </button>
-      <nav id="mobile-nav" className="mobile-nav" aria-label={label} hidden={!open}>
+      <nav id="mobile-nav" className="mobile-nav" aria-label={label} hidden={!open} style={height ? { height } : undefined}>
         {items.map((it) =>
           it.page ? (
             <Link key={it.href} href={it.href} onClick={close}>
