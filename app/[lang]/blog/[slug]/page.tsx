@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getDictionary, isLocale, locales, SITE_URL } from "@/lib/i18n";
-import { formatDate, getPost, POSTS, readingMinutes } from "@/lib/blog";
+import { formatDate, getPost, postImage, POSTS, readingMinutes } from "@/lib/blog";
 import Header from "@/components/Header";
 import Prose from "@/components/Prose";
 import ShareBar from "@/components/ShareBar";
@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const post = getPost(slug);
   if (!isLocale(lang) || !post) return {};
   const c = post.content[lang];
-  const image = `/blog/${post.slug}-${lang}.png`;
+  const image = postImage(post, lang);
   return {
     title: `${c.title} · Valery Figueroa Huaman`,
     description: c.description,
@@ -48,7 +48,7 @@ export default async function BlogPost({ params }: Params) {
     description: c.description,
     datePublished: post.date,
     inLanguage: lang,
-    image: `${SITE_URL}/blog/${post.slug}-${lang}.png`,
+    image: `${SITE_URL}${postImage(post, lang)}`,
     url: `${SITE_URL}/${lang}/blog/${slug}`,
     author: { "@type": "Person", name: "Valery Figueroa Huaman", url: `${SITE_URL}/${lang}` },
   };

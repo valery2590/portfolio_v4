@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 import { getDictionary, isLocale, locales } from "@/lib/i18n";
+import { loadFont } from "@/lib/og";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
@@ -7,18 +8,6 @@ export const alt = "Valery Figueroa Huaman";
 
 export function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
-}
-
-/** Fetch a Google Font subset (only the glyphs we render) as TTF for Satori. */
-async function loadFont(family: string, weight: number, text: string): Promise<ArrayBuffer | null> {
-  try {
-    const url = `https://fonts.googleapis.com/css2?family=${family}:wght@${weight}&text=${encodeURIComponent(text)}`;
-    const css = await (await fetch(url)).text();
-    const src = css.match(/src: url\((.+?)\) format\('(opentype|truetype)'\)/)?.[1];
-    return src ? await (await fetch(src)).arrayBuffer() : null;
-  } catch {
-    return null;
-  }
 }
 
 const C = {

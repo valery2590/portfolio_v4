@@ -4,12 +4,49 @@ const post: Post = {
   slug: "cache-cdn",
   number: 1,
   date: "2026-11-21",
+  customImage: true,
   content: {
     es: {
       title: "Cada visita, una llamada a la API: ¿de verdad hace falta?",
       description:
         "Un patrón muy común que ralentiza webs y satura servidores, y cómo un caché en el CDN lo resuelve sin escalar infraestructura.",
       tags: ["rendimiento", "javascript", "cdn"],
+      social: {
+        hook: "Antes de escalar el servidor, pregúntate qué peticiones necesitan llegar a él.",
+        highlight: "pregúntate qué peticiones necesitan llegar a él.",
+        points: ["Un fetch en cada visita satura el servidor", "Si el dato cambia poco, sirve una copia desde el CDN", "Lo difícil es decidir cuándo renovar"],
+      },
+      linkedin: `Cada visita, una llamada a la API.
+¿De verdad hace falta? 🤔
+
+Es un patrón muy común: un script en JavaScript que, al cargar la página, hace un fetch para traer los datos que el usuario necesita.
+
+Con poco tráfico funciona perfecto.
+
+Pero cuando crecen las visitas, cada usuario es una consulta más contra el servidor. Y llega el síntoma clásico: todo va más lento.
+
+Antes de escalar el servidor, conviene hacerse una pregunta:
+
+👉 ¿Estos datos cambian en cada visita, o solo de vez en cuando?
+
+Si cambian una vez al día, estás consultando al servidor miles de veces para obtener la misma respuesta.
+
+La solución suele ser sencilla: un caché en el CDN.
+
+→ La primera petición llega al servidor.
+→ Las siguientes reciben una copia desde el nodo más cercano al usuario.
+→ Cuando el dato se actualiza, se renueva la copia.
+
+Resultado: datos al instante, un servidor que respira y una experiencia fluida.
+
+Lo difícil no es cachear. Es decidir cuándo renovar: cada cuánto cambia el dato y qué pasa si alguien ve una versión de hace unas horas.
+
+Antes de escalar el servidor, pregúntate cuántas de esas peticiones necesitan llegar a él.
+
+📌 Esto es el #1 de Integraciones sin drama.
+Cada semana, un patrón nuevo. Sígueme si no quieres perderte el siguiente.
+
+#IntegracionesSinDrama #webperformance #javascript #cdn`,
       body: [
         { t: "p", text: "Es un patrón muy común: un script en JavaScript que, al cargar la página, hace un `fetch` para traer los datos que el usuario necesita." },
         { t: "p", text: "Con poco tráfico funciona perfecto. Pero cuando crecen las visitas, cada usuario es una consulta más contra el servidor. Y llega el síntoma clásico: **todo va más lento**." },
@@ -54,6 +91,11 @@ const post: Post = {
       description:
         "A very common pattern that slows sites down and overloads servers, and how a CDN cache fixes it without scaling infrastructure.",
       tags: ["performance", "javascript", "cdn"],
+      social: {
+        hook: "Before scaling the server, ask which requests actually need to reach it.",
+        highlight: "ask which requests actually need to reach it.",
+        points: ["A fetch on every visit overloads the server", "If data rarely changes, serve a CDN copy", "The hard part is deciding when to refresh"],
+      },
       body: [
         { t: "p", text: "It's a very common pattern: a JavaScript snippet that, when the page loads, runs a `fetch` to get the data the user needs." },
         { t: "p", text: "With little traffic it works perfectly. But as visits grow, every user is one more request hitting the server. And the classic symptom shows up: **everything gets slower**." },
@@ -98,6 +140,11 @@ const post: Post = {
       description:
         "Un pattern molto comune che rallenta i siti e sovraccarica i server, e come una cache sulla CDN lo risolve senza scalare l'infrastruttura.",
       tags: ["performance", "javascript", "cdn"],
+      social: {
+        hook: "Prima di scalare il server, chiediti quali richieste devono davvero arrivarci.",
+        highlight: "chiediti quali richieste devono davvero arrivarci.",
+        points: ["Un fetch a ogni visita sovraccarica il server", "Se il dato cambia poco, servi una copia dalla CDN", "La parte difficile è decidere quando rinnovare"],
+      },
       body: [
         { t: "p", text: "È un pattern molto comune: uno script JavaScript che, al caricamento della pagina, esegue un `fetch` per ottenere i dati di cui l'utente ha bisogno." },
         { t: "p", text: "Con poco traffico funziona perfettamente. Ma quando le visite crescono, ogni utente è una richiesta in più verso il server. E arriva il sintomo classico: **tutto diventa più lento**." },
