@@ -1,6 +1,6 @@
 import type { Locale } from "./i18n";
 import cacheCdn from "@/content/blog/cache-cdn";
-import leadScoring from "@/content/blog/lead-scoring";
+import idempotency from "@/content/blog/idempotency";
 
 export type Block =
   | { t: "p"; text: string }
@@ -42,7 +42,7 @@ export type Post = {
 };
 
 // Newest first.
-export const POSTS: Post[] = [leadScoring, cacheCdn];
+export const POSTS: Post[] = [idempotency, cacheCdn];
 
 export function getPost(slug: string): Post | undefined {
   return POSTS.find((p) => p.slug === slug);
